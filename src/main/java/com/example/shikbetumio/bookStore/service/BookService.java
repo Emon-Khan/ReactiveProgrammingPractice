@@ -17,5 +17,5 @@ public interface BookService {
 
 	public Mono<Void> delete(int bookId);
 
-	public Flux<Book> search(String query);
+	Flux<Book> searchBooks(String title);
 }

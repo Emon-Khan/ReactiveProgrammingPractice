@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.shikbetumio.bookStore.entity.Book;
@@ -47,5 +48,10 @@ public class BookController {
 	@DeleteMapping("/{bookId}")
 	public Mono<Void> delete(@PathVariable int bookId) {
 		return bookService.delete(bookId);
+	}
+
+	@GetMapping("/search")
+	public Flux<Book> searchBooks(@RequestParam("query") String query) {
+		return bookService.searchBooks(query);
 	}
 }

@@ -57,9 +57,8 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public Flux<Book> search(String query) {
-		// TODO Auto-generated method stub
-		return null;
+	public Flux<Book> searchBooks(String title) {
+		return bookRepository.searchBookByTitle("%" + title + "%");
 	}
 
 }
